@@ -1,0 +1,54 @@
+method: P_clr
+
+run_label: null
+input_texts: runs/canonical_co/input_texts.csv
+output_dir: runs
+
+llm:
+  provider: vllm
+  model: google/gemma-4-31B-it
+  api_base: http://127.0.0.1:11434/v1
+  api_key: your-secret-key
+  concurrency: 100
+  max_tokens: 10000
+  temperature: 0.0
+
+embed:
+  model: Qwen/Qwen3-Embedding-4B
+  device: cuda
+  batch_size: 64
+  normalize: true
+
+umap:
+  n_components: 256
+  n_neighbors: 15
+  min_dist: 0.0
+  metric: cosine
+  random_state: 42
+
+hdbscan:
+  min_cluster_size: 25
+  min_samples: 20
+
+leiden:
+  # `resolution` (γ) is only applied by the `cpm` and `mod_rb` partitions.
+  # `modularity` runs at the fixed algorithmic default (γ=1), which is identical
+  # to `mod_rb` at γ=1 — the production runs. For the paper's γ-sweep
+  # (RBConfiguration), set partition_type: mod_rb and vary `resolution`.
+  partition_type: modularity
+  resolution: 1.0
+  seed: 42
+
+extract:
+  text_truncate: 50000
+  spacy_model: en_core_web_lg
+  max_triplets_per_text: 20
+  personas:
+    - journalist
+    - political_scientist
+    - conspiracy_analyst
+    - fact_checker
+
+synthesize:
+  max_claims_per_cluster: 100
+  max_content_chars: 15000
