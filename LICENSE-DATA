@@ -1,0 +1,24 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Max Upravitelev
+
+The data files in novel_narratives/ are licensed under the Creative Commons
+Attribution 4.0 International License. You are free to share and adapt this
+material for any purpose, provided you give appropriate credit, link to the
+license, and indicate if changes were made.
+
+Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:           https://creativecommons.org/licenses/by/4.0/
+
+Attribution: cite the paper (see TERMS_OF_USE.md, "How to cite").
+
+Scope. This license covers the material we produced: the generated narrative
+labels, the per-annotator votes, and the id-and-hash source listings. Two
+things it does not cover:
+
+  - Label strings reproduced from a source taxonomy. Where a field of
+    per_annotator_votes.csv (ann_a_label_match, ann_b_label_match) holds a
+    label from one of the datasets in taxonomies/, that string stays under the
+    terms of its original dataset.
+  - The source documents themselves, which are not in this repository. Only
+    their ids and hashes are. See TERMS_OF_USE.md.
